@@ -7,6 +7,7 @@ import torchvision.transforms as T
 import torchvision.models as models
 from sklearn.metrics import accuracy_score
 
+
 yolo_model = YOLO('yolov8n.pt')
 
 mobilenet = models.mobilenet_v3_small(pretrained=True)
@@ -118,9 +119,6 @@ val_image_paths = [
 ]
 val_labels = [1, 1, 0, 0] 
 target_embedding = generate_target_embedding(ref_image_paths, target_class)
-
-accuracy = evaluate_accuracy(val_image_paths, val_labels, target_class, target_embedding)
-print(f"Accuracy: {accuracy:.4f}")
 
 cap = cv2.VideoCapture(0)
 
